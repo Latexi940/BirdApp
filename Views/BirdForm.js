@@ -13,6 +13,7 @@ const BirdForm = (props) => {
 
     const [name, setName] = useState("");
     const [rarity, setRarity] = useState("");
+    const [notes, setNotes] = useState("");
 
     const BackToHome = () => {
         console.log('Opening home');
@@ -22,7 +23,7 @@ const BirdForm = (props) => {
 
     const AddBird = () => {
         console.log('Adding new observation');
-        insertToBirdArray(name, rarity);
+        insertToBirdArray(name, rarity, notes);
         BackToHome();
     };
 
@@ -39,9 +40,16 @@ const BirdForm = (props) => {
 
                 <RadioForm style={styles.radioForm}
                            radio_props={radio_props}
+                           initial={''}
                            onPress={(value) => {
                                setRarity(value)
                            }}
+                />
+
+                <Text>Additional notes:</Text>
+                <TextInput style={styles.textInput}
+                           placeholder='Notes'
+                           onChangeText={(notes) => setNotes(notes)}
                 />
 
                 <Button style={styles.button}

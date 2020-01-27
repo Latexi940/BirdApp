@@ -1,27 +1,11 @@
 import React from 'react';
+import {AsyncStorage} from 'react-native'
+import {getBirds} from "../Components/List";
 
-const birdArray = [
-    {
-        'timestamp': '27.1.2020 14.50',
-        'key': '0',
-        'name': 'Sparrow',
-        'rarity': 'Common',
-    },
-    {
-        'timestamp': '27.1.2020 14.50',
-        'key': '1',
-        'name': 'Mockingjay',
-        'rarity': 'Rare',
-    },
-    {
-        'timestamp': '27.1.2020 14.50',
-        'key': '2',
-        'name': 'Whistling Dabblejacker',
-        'rarity': 'Extremely rare',
-    },
-];
+let birdArray = [];
 
-const insertToBirdArray = (name, rarity) => {
+const insertToBirdArray = async (name, rarity, notes) => {
+
     const date = (
             new Date().getDate()) + "."
             + ((new Date().getMonth() + 1) + "."
@@ -32,11 +16,15 @@ const insertToBirdArray = (name, rarity) => {
             + (new Date().getMinutes()
         );
     const timestamp = date + " " + time;
-    console.log('Date is ' + date +" and time is " + time);
-
-    const key = birdArray.length.toString();
-    const bird = {timestamp, key, name, rarity};
+    const bird = {timestamp, name, rarity, notes};
     birdArray.push(bird);
-}
+    try{
+        await AsyncStorage.setItem('birdList', JSON.stringify(birdArray));
+        console.log('Added new bird with timestamp: ' + timestamp);
+        console.log("Bird's name is " + name + ' and it is ' + rarity );
+    }catch(e){
+        console.log('Could not save to AsyncStorage:' + e)
+    }
+};
 
-export {birdArray, insertToBirdArray};
+export {insertToBirdArray};

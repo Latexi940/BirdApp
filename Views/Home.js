@@ -1,6 +1,5 @@
 import React from 'react';
 import {Button, StyleSheet, Text, View} from "react-native";
-import {birdArray} from "../Content/ListOfBirds";
 import {List} from "../Components/List"
 
 
@@ -13,9 +12,9 @@ const Home = (props) => {
     return (
         <View style={styles.container}>
             <Text style={styles.header}>These are the birds you have found!</Text>
-            <List birdArray={birdArray}/>
+            <List/>
             <Button style={styles.button}
-                    title={'ADD'}
+                    title={'ADD BIRD'}
                     onPress={openForm}
             />
         </View>
