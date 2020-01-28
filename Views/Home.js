@@ -4,40 +4,51 @@ import {List} from "../Components/List"
 
 
 const Home = (props) => {
-    const openForm = () =>{
+    const openForm = () => {
         console.log('Opening form');
         props.navigation.navigate('Form')
     };
 
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>These are the birds you have found!</Text>
-            <List/>
-            <Button style={styles.button}
+            <Text style={styles.header}>Bird log</Text>
+            <View style={styles.list}>
+                <List/>
+            </View>
+            <View style={styles.button}>
+                <Button
+                    color={'#0daad1'}
                     title={'ADD BIRD'}
                     onPress={openForm}
-            />
+                />
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        marginTop:25,
+        paddingTop: 25,
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#d1fff8',
         alignItems: 'center',
         justifyContent: 'center',
     },
-    header:{
-        margin:20,
-        fontSize:20
+    header: {
+        margin: 20,
+        fontSize: 20
+    },
+    list: {
+        width: 250,
+        alignItems: 'center',
+        flex: 8,
+        marginBottom:20
     },
     button: {
-        width: 50,
-        height:50,
+        flex: 1,
+        alignItems: 'center',
         borderRadius: 50,
-        marginBottom: 30,
+        margin: 15,
     }
 });
 

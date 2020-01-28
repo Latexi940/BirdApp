@@ -22,8 +22,6 @@ const getBirds = () => {
         getData();
     }, []);
 
-    console.log("Birds in Async array: " + birds);
-
     return birds;
 };
 
@@ -36,10 +34,11 @@ const List = () => {
             renderItem={({item}) => {
                 return (
                     <View style={styles.listItem}>
-                        <Text>{item.timestamp}</Text>
-                        <Text>{item.rarity}</Text>
+                        <Text style={styles.text}>{item.timestamp}</Text>
+                        <Text style={styles.text}>{item.coords}</Text>
+                        <Text style={styles.text}>{item.rarity}</Text>
                         <Text style={styles.name}>{item.name}</Text>
-                        <Text>{item.notes}</Text>
+                        <Text style={styles.text}>{item.notes}</Text>
                     </View>
                 )
             }}
@@ -49,12 +48,18 @@ const List = () => {
 
 const styles = StyleSheet.create({
     listItem: {
-        marginTop: 20,
+        marginTop: 10,
         padding: 5,
-
+        borderWidth: 1,
+        borderColor: '#bbbbbb'
+    },
+    text:{
+      marginBottom: 5
     },
     name: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginBottom: 5
     }
 });
 
