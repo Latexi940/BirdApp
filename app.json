@@ -30,6 +30,11 @@
       "permissions": [
         "ACCESS_FINE_LOCATION"
       ]
-    }
+    },
+    "description": "Small app to keep track of bird sightings",
+    "githubUrl": "https://github.com/Latexi940/BirdApp"
+  },
+  "android": {
+    "package": "com.yourcompany.yourappname"
   }
 }
