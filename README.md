@@ -1,7 +1,7 @@
 # BirdAPP
 
 Small app to keep track of bird sightings.
-Shows a list of users previously sighted birds.
+Shows a list of user's previously sighted birds.
 Allows user to add bird sightings with notes and they will be saved with geotags and timestamps.
 
 Created with React Native using Expo CLI. App should work on Android and iOS, but has been properly tested only on Android.
