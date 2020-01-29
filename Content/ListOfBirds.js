@@ -1,9 +1,10 @@
 import React from 'react';
 import {AsyncStorage} from 'react-native'
-
-let birdArray = [];
+import {getBirds} from "../Components/List";
 
 const insertToBirdArray = async (name, rarity, notes, coords) => {
+
+    let birdArray = getBirds();
 
     const date = (
             new Date().getDate()) + "."
